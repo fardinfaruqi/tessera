@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import type { TesseraBlock } from '../types';
 import { GripVertical, Clock, Zap, Target, CheckCircle2, Circle } from 'lucide-react';
 import { useDroppable } from '@dnd-kit/core';
