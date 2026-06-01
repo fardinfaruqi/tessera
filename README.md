@@ -10,6 +10,10 @@
     <a href="https://dndkit.com/">dnd-kit</a> •
     <a href="https://www.framer.com/motion/">Framer Motion</a>
   </p>
+  <p>
+    <strong>Live demo:</strong>
+    <a href="https://tessera-ai-calendar.vercel.app">tessera-ai-calendar.vercel.app</a>
+  </p>
 </div>
 
 ---
