@@ -178,10 +178,10 @@ export default function Dashboard() {
             />
             <div className="mt-6 flex items-center gap-3 pt-6 border-t border-slate-800">
               <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm shadow-lg">
-                JS
+                FF
               </div>
               <div className="hidden lg:block">
-                <p className="text-sm font-semibold text-slate-200">Jane Smith</p>
+                <p className="text-sm font-semibold text-slate-200">Fardin Faruqi</p>
                 <p className="text-xs text-slate-500">Pro Plan</p>
               </div>
             </div>
