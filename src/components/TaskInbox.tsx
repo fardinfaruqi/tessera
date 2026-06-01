@@ -6,10 +6,11 @@ import { CSS } from '@dnd-kit/utilities';
 
 interface TaskInboxProps {
   tasks: TesseraBlock[];
+  completedTasks?: TesseraBlock[];
   onToggleComplete: (id: string) => void;
 }
 
-export default function TaskInbox({ tasks, onToggleComplete }: TaskInboxProps) {
+export default function TaskInbox({ tasks, completedTasks = [], onToggleComplete }: TaskInboxProps) {
   const { setNodeRef: setDropRef } = useDroppable({
     id: 'inbox-droppable',
   });
@@ -39,6 +40,31 @@ export default function TaskInbox({ tasks, onToggleComplete }: TaskInboxProps) {
               <CheckCircle2 className="w-8 h-8 text-emerald-500/50" />
             </div>
             <p className="text-sm font-medium">Inbox Zero achieved!</p>
+          </div>
+        )}
+      </div>
+
+      {/* Completed / Marked Tasks Section */}
+      <div className="border-t border-slate-800 p-4 bg-slate-900/40">
+        <h3 className="text-sm font-semibold text-slate-200 flex items-center justify-between">
+          <span>Completed</span>
+          <span className="text-xs px-2 py-0.5 rounded bg-slate-800/50 text-slate-300">{completedTasks.length}</span>
+        </h3>
+        {completedTasks.length === 0 ? (
+          <p className="text-xs text-slate-500 mt-2">No completed tasks yet.</p>
+        ) : (
+          <div className="mt-3 space-y-2">
+            {completedTasks.map(task => (
+              <div key={task.id} className="flex items-center justify-between gap-3 p-2 rounded-md bg-slate-800/30 border border-slate-700/40">
+                <div className="flex items-center gap-3 min-w-0">
+                  <button onClick={(e) => { e.stopPropagation(); onToggleComplete(task.id); }} className="focus:outline-none">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                  </button>
+                  <div className="truncate text-sm text-slate-300">{task.title}</div>
+                </div>
+                <div className="text-xs text-slate-400">{task.duration}m</div>
+              </div>
+            ))}
           </div>
         )}
       </div>

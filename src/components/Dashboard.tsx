@@ -132,6 +132,7 @@ export default function Dashboard() {
 
   const activeTask = useMemo(() => tasks.find(t => t.id === activeId), [activeId, tasks]);
   const pendingTasksFiltered = tasks.filter(t => t.status === 'pending');
+  const completedTasksFiltered = tasks.filter(t => t.status === 'completed');
 
   return (
     <DndContext 
@@ -215,7 +216,7 @@ export default function Dashboard() {
                   </div>
                   
                   <div className="w-full lg:w-96 rounded-2xl overflow-hidden shadow-xl flex-shrink-0 lg:h-full h-[500px]">
-                    <TaskInbox tasks={pendingTasksFiltered} onToggleComplete={toggleComplete} />
+                    <TaskInbox tasks={pendingTasksFiltered} completedTasks={completedTasksFiltered} onToggleComplete={toggleComplete} />
                   </div>
                 </motion.div>
               ) : (
